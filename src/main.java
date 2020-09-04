@@ -5,6 +5,13 @@ public class main {
 
         try {
             Connection conc = DriverManager.getConnection("jdbc:mysql://localhost:3306/heros", "root", "Goksravi99.");
+            Statement sta = conc.createStatement();
+            ResultSet res = sta.executeQuery("Select * from hero;");
+            while (res.next())
+            {
+                System.out.println(res.getString("name")+" "+ res.getString("age"));
+            }
+
             /*Statement stat = conc.createStatement();
             ResultSet rst = stat.executeQuery();
             */
